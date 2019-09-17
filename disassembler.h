@@ -4,7 +4,7 @@
 
 #ifndef CHIP_8_EMULATOR_DISASSEMBLER_H
 #define CHIP_8_EMULATOR_DISASSEMBLER_H
-#define NOT_IMPLEMENTED_ERROR "Super CHIP-8 instruction disassembly not implemented"
+#define NOT_IMPLEMENTED_ERROR "Super CHIP-8 instruction disassembly not implemented\n"
 void disassemble_chip8(uint8_t *memory, int pc);
 void disassemble_opcode8(uint8_t nibble2, uint8_t nibble3, uint8_t nibble4);
 void disassemble_opcodeF(uint8_t nibble2, uint8_t byte2);

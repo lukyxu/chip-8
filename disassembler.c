@@ -7,26 +7,26 @@
 #include <stdio.h>
 #include "disassembler.h"
 
-int main (int argc, char** argv){
-    FILE *file = fopen(argv[1], "rb");
-    if (file == NULL){
-        printf("Could not open %s", argv[1]);
-        exit(EXIT_FAILURE);
-    }
-    fseek(file, 0L, SEEK_END);
-    int fsize = ftell(file);
-    fseek(file, 0L, SEEK_SET);
-    uint8_t *buffer = malloc(fsize+0x200);
-    fread(buffer+0x200, fsize, 1, file);
-    fclose(file);
-    int pc = 0x200u;
-    while (pc < 0x200+fsize){
-        disassemble_chip8(buffer, pc);
-        pc += 2;
-        printf("\n");
-    }
-    return EXIT_SUCCESS;
-}
+//int main (int argc, char** argv){
+//    FILE *file = fopen(argv[1], "rb");
+//    if (file == NULL){
+//        printf("Could not open %s", argv[1]);
+//        exit(EXIT_FAILURE);
+//    }
+//    fseek(file, 0L, SEEK_END);
+//    int fsize = ftell(file);
+//    fseek(file, 0L, SEEK_SET);
+//    uint8_t *buffer = malloc(fsize+0x200);
+//    fread(buffer+0x200, fsize, 1, file);
+//    fclose(file);
+//    int pc = 0x200u;
+//    while (pc < 0x200+fsize){
+//        disassemble_chip8(buffer, pc);
+//        pc += 2;
+//        printf("\n");
+//    }
+//    return EXIT_SUCCESS;
+//}
 
 void disassemble_chip8(uint8_t *memory, int pc) {
     uint8_t *instruction = &memory[pc];
